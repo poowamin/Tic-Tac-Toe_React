@@ -26,20 +26,21 @@ export default function GameBoard({ onSelectedSquare, turns }) {
   // });
 
   // onSelectedSquare();
-}
+  //}
 
-return (
-  <ol id="game-board">
-    {gameBoard.map((row, rowIndex) => (
-      <li key={rowIndex}>
-        <ol>
-          {row.map((playerSymbol, colIndex) => (
-            <li key={colIndex}>
-              <button onClick={() => onSelectedSquare}>{playerSymbol}</button>
-            </li>
-          ))}
-        </ol>
-      </li>
-    ))}
-  </ol>
-);
+  return (
+    <ol id="game-board">
+      {gameBoard.map((row, rowIndex) => (
+        <li key={rowIndex}>
+          <ol>
+            {row.map((playerSymbol, colIndex) => (
+              <li key={colIndex}>
+                <button onClick={onSelectedSquare}>{playerSymbol}</button>
+              </li>
+            ))}
+          </ol>
+        </li>
+      ))}
+    </ol>
+  );
+}
