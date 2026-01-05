@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 export default function Player({ initialName, symbol, isActive }) {
-  const [playerName, setPlayeName] = useState(initialName);
+  const [playerName, setPlayerName] = useState(initialName);
   const [isEditing, setIsEditing] = useState(false);
 
   function handleEditClick() {
@@ -10,7 +10,7 @@ export default function Player({ initialName, symbol, isActive }) {
 
   function handleChange(event) {
     console.log(event);
-    setPlayeName(event.target.value);
+    setPlayerName(event.target.value);
   }
 
   let editablePlayerName = <span className="player-name">{playerName}</span>;
