@@ -56,6 +56,8 @@ function App() {
     }
   }
 
+  const hasDraw = gameTurn.length === 9 && !winner;
+
   function handleSelectSquare(rowIndex, colIndex) {
     // setActivePlayer((curActivePlayer) => (curActivePlayer === "X" ? "O" : "X"));
     setGameTurn((prevTurns) => {
@@ -67,6 +69,11 @@ function App() {
       ];
       return updatedTurns;
     });
+  }
+
+  function handleRematch() {
+    setGameTurn([]);
+    // setHasWinner(false);
   }
 
   return (
@@ -84,7 +91,9 @@ function App() {
             isActive={activePlayer === "O"}
           />
         </ol>
-        {winner && <GameOver winner={winner} />}
+        {(winner || hasDraw) && (
+          <GameOver winner={winner} onRematch={handleRematch} />
+        )}
         <GameBoard
           onSelectedSquare={handleSelectSquare}
           // activePlayerSymbol={activePlayer}
